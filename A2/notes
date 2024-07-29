@@ -1,0 +1,56 @@
+1. Given an integer k and a queue of integers,  reverse the order of the first k elements of the queue, leaving the other elements in the same relative order
+----
+To implement this in C, you would need to use a combination of queue and stack data structures. Here's a step-by-step plan:
+
+Declare a queue and a stack.
+Enqueue the elements into the queue.
+Dequeue the first k elements from the queue and push them into the stack.
+Pop all elements from the stack and enqueue them back into the queue.
+Dequeue the remaining elements from the queue and enqueue them back. This ensures that the order of the remaining elements is preserved.
+--------------------------------------------------------------------------------------------------------
+2. Given a queue of integers of even length, rearrange the elements by interleaving the first half of the queue with the second half of the queue implement it *Using stack*
+---------
+This code includes a size field in the Queue structure and the size function to get the size of the queue. The enQueue and deQueue functions have been updated to maintain the size of the queue. The interleaveQueue function dequeues the first half of the elements from the queue, pushes them into the stack, and then interleaves the elements of the stack and the remaining elements of the queue.
+
+Yes, the interleaveQueue function in the provided code uses a stack to interleave the first half of the queue with the second half. Here's how it works:
+
+It first checks if the size of the queue is even. If not, it returns without doing anything.
+
+It creates a stack with a capacity equal to half the size of the queue.
+
+It then dequeues the first half of the elements from the queue and pushes them into the stack.
+
+Finally, it interleaves the elements of the stack and the remaining elements of the queue. It does this by popping an element from the stack and enqueuing it to the queue, then dequeuing an element from the queue and enqueuing it to the queue. This is done until the stack is empty.
+eg:
+Yes, the output is correct according to the stack implementation. Here's how it works:
+
+1. The original queue is: 1 2 3 4 5 6 7 8
+
+2. The first half of the queue (1 2 3 4) is pushed into the stack. The stack is a LIFO (Last In, First Out) data structure, so the elements are stored in reverse order: 4 3 2 1
+
+3. The remaining elements of the queue (5 6 7 8) are left in their original order.
+
+4. The elements are then interleaved. The first element from the stack (4) is placed first, followed by the first element from the queue (8), then the second element from the stack (3), then the second element from the queue (7), and so on.
+
+5. The final queue after interleaving is: 4 8 3 7 2 6 1 5
+
+So, the output is correct according to the stack implementation.
+
+----------------------------------------------------------------------------------------------
+Q2: done using queue
+------
+The output of the interleaving operation using a queue depends on the initial state of the queue. The operation takes the first half of the queue and interleaves it with the second half. The first element is followed by the first element of the second half, the second element is followed by the second element of the second half, and so on.
+
+For example, if the original queue was 1 2 3 4 5 6 7 8, the first half is 1 2 3 4 and the second half is 5 6 7 8. After interleaving, the queue becomes 1 5 2 6 3 7 4 
+---------------------------------------------------------------------------------------------------
+
+3. Given a Queue consisting of first n natural numbers (in random order).  check whether the given Queue elements can be arranged in increasing order in another Queue using a stack. 
+
+he output of this program depends on whether the elements in the queue can be rearranged in increasing order using a stack.
+
+In your main function, you're creating a queue and enqueuing the numbers 5, 1, 2, 3, 4. Then you're calling the checkSortedOrder function to check if these numbers can be rearranged in increasing order using a stack.
+
+The checkSortedOrder function works by expecting the numbers in increasing order. If the number dequeued from the queue is not the expected number, it's pushed onto the stack. If it is the expected number, the function expects the next number. The function also continuously pops off the stack and increments the expected number while the top of the stack is the expected number.
+
+In this case, the numbers can be rearranged in increasing order using a stack. The number 5 is pushed onto the stack, and the numbers 1, 2, 3, 4 are dequeued from the queue in order. Then the number 5 is popped off the stack. So the output of the program should be "Yes".
+
